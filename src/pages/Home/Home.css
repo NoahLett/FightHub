@@ -1,0 +1,31 @@
+.auth-button {
+    color: white;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: #fa5757;
+    padding: .75rem 1.25rem;
+    border-radius: 2rem;
+    border: none;
+    margin: 1rem;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.auth-button:hover {
+    background: #f97272;
+}
+
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.copy-right {
+    font-size: 1rem;
+    margin-bottom: .75rem;
+    margin-left: 0.25rem;
+    font-weight: bold;
+}
