@@ -1,0 +1,66 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type=password],
+input[type=email] {
+    padding: .5rem;
+    margin: .5rem;
+    font-size: 1.15rem;
+}
+
+.submit-button {
+    color: darkslategrey;
+    background-color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: .75rem 1.5rem;
+    border-radius: 2rem;
+    border: solid 1px darkgray;
+    margin: 1rem;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.submit-button:hover {
+    background-color: rgb(243, 240, 240);
+    color: black
+}
+
+.label {
+    position: relative;
+}
+
+.instructions {
+    color: white;
+    background-color: rgb(53, 53, 53);
+    padding: .5rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    border-radius: .25rem;
+}
+
+.offscreen {
+    position: absolute;
+    left: 99999px;
+}
+
+.hide {
+    display: none;
+}
+
+.valid {
+    color: rgb(0, 173, 0);
+    position: absolute;
+    right: 1.25rem;
+    top: 1.25rem;
+}
+
+.invalid {
+    color: red;
+    position: absolute;
+    right: 1.25rem;
+    top: 1.25rem;
+}
