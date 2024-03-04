@@ -6,12 +6,34 @@
     right: 0;
     margin: auto;
     max-width: 20rem;
-    height: 25rem;
+    height: 30rem;
     background-color: white;
     border-radius: .75rem;
     padding: 1rem;
 }
 
+.close-button-container {
+    display: flex;
+    justify-content: end;
+}
+
+.auth-modal-header {
+    font-style: italic;
+    font-weight: 700;
+}
+
+.disclaimer {
+    font-size: .7rem;
+    margin: .5rem 2.25rem;
+    text-align: center;
+    color: darkslategray;
+}
+
 .close-button {
-    font-size: 1rem;
+    font-size: 1.25rem;
+}
+
+.close-button:hover {
+    cursor: pointer;
+    color: darkslategray;
 }

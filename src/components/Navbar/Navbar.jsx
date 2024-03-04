@@ -1,9 +1,10 @@
 import './Navbar.css';
 
-const Navbar = ({ authToken, minimal, showModal, setShowModal }) => {
+const Navbar = ({ authToken, minimal, showModal, setShowModal, setIsSignUp }) => {
 
   const handleClick = () => {
     setShowModal(true);
+    setIsSignUp(false);
   }
 
   return (
