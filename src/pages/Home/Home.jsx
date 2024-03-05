@@ -19,7 +19,7 @@ const Home = () => {
 
   return (
     <div className='overlay'>
-    <Navbar setIsSignUp={setIsSignUp} showModal={showModal} setShowModal={setShowModal} authToken={authToken} />
+    <Navbar setIsSignUp={setIsSignUp} showModal={showModal} setShowModal={setShowModal} />
       <div className='home-page'>
         <h1 className='slogan'>Swipe to Fight<FaRegCopyright className='copy-right'/></h1>
         <button className='auth-button' onClick={handleClick}>

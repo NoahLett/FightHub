@@ -25,6 +25,10 @@
     color: white;
 }
 
+.is-dark {
+    color: rgb(39, 39, 39);
+}
+
 .nav-buttons {
     flex: 6;
     display: flex;

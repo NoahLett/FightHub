@@ -36,8 +36,8 @@
 }
 
 .copy-right {
-    font-size: 1rem;
-    margin-bottom: .75rem;
+    font-size: 2rem;
+    margin-bottom: 3.5rem;
     margin-left: 0.25rem;
     font-weight: bold;
 }
@@ -54,6 +54,10 @@
     .slogan {
         font-size: 6rem;
     }
+    .copy-right {
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+    }
 }
 
 @media (max-width: 375px) {
@@ -61,5 +65,9 @@
         font-size: 3.25rem;
         margin-left: .25rem;
         margin-right: .25rem;
+    }
+    .copy-right {
+        font-size: 1rem;
+        margin-bottom: 2rem;
     }
 }
