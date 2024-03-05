@@ -20,12 +20,19 @@
     width: 100vw;
     height: 100vh;
     position: fixed;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 0.65) 0%, 
+        rgba(0, 0, 0, 0) 100%
+        ), url('images/wraps.jpeg');
+    background-size: cover;
+    background-position: center top;
 }
 
 .slogan {
-    font-size: 3rem;
+    font-size: 7rem;
     color: white;
+    margin: 2rem;
 }
 
 .copy-right {
@@ -33,4 +40,26 @@
     margin-bottom: .75rem;
     margin-left: 0.25rem;
     font-weight: bold;
+}
+
+.home-page {
+    margin-top: 25vh;
+}
+
+@media (max-width: 768px) {
+    .overlay {
+        background-image: url('images/wraps-2.jpeg');
+        background-position: 60% top;
+    }
+    .slogan {
+        font-size: 6rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .slogan {
+        font-size: 3.25rem;
+        margin-left: .25rem;
+        margin-right: .25rem;
+    }
 }
