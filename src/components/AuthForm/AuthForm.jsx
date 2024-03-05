@@ -56,7 +56,7 @@ const AuthForm = ({isSignUp}) => {
     }, [email, password, matchPassword])
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='auth-form' onSubmit={handleSubmit}>
         { isSignUp &&
           <label className='label'>
             <span className={validEmail ? "valid" : "hide"}>

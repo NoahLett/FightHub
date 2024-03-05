@@ -1,0 +1,125 @@
+.onboarding {
+    border-top: solid 1px darkgray;
+}
+
+.onboarding-title {
+    margin: 1rem;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+.onboarding-form {
+    display: flex;
+    justify-content: space-around;
+}
+
+.left-side,
+.right-side {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 35%;
+    text-align: start;
+}
+
+.onboarding-form input {
+    padding: .5rem .5rem;
+    margin: .75rem 0;
+    font-size: 1.25rem;
+    border: solid 2px lightgray;
+    border-radius: .5rem;
+}
+
+.onboarding-form label {
+    margin: .5rem 0;
+}
+
+.onboarding-form input::-webkit-outer-spin-button,
+.onboarding-form input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.input-container input {
+    margin-right: 1rem;
+}
+
+.input-container label {
+    padding: 1rem;
+    border: solid 2px lightgray;
+    border-radius: .5rem;
+    transition: all 0.3s ease;
+    margin-right: 1rem;
+}
+
+.dob-input {
+    width: 3rem;
+    text-align: center;
+}
+
+.gender-label {
+    width: 4rem;
+    text-align: center;
+}
+
+.boolean-label {
+    width: 2rem;
+    text-align: center;
+}
+
+.input-container input[type='radio'] {
+    display: none;
+}
+
+.input-container input[type='checkbox'] {
+    align-self: start;
+}
+
+.input-container input[type='radio']:checked + label {
+    border: solid 2px #FF6666;
+}
+
+.create-account-button:hover {
+    background-color: lightgray;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.create-account-button:active {
+    background-color: #FF6666;
+}
+
+.profile-image {
+    width: 100%;
+}
+
+@media (max-width: 375px) {
+    .onboarding-form {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .left-side,
+    .right-side {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+        text-align: start;
+    }
+    #about {
+        width: 95%;
+    }
+    .create-account-button {
+        width: 90%;
+    }
+}

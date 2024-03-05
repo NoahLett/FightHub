@@ -4,9 +4,36 @@ import './Onboarding.css';
 
 const Onboarding = () => {
 
+  const [formData, setFormData] = useState({
+    user_id: '',
+    first_name: '',
+    dob_day: '',
+    dob_month: '',
+    dob_year: '',
+    gender: 'male',
+    show_gender: false,
+    trained: false,
+    email: '',
+    url: '',
+    about: '',
+    matches: []
+  })
 
-  const handleChange = () => {
-    console.log('Clicked');
+
+  const handleChange = e => {
+    let value = e.target.value;
+    if (value === 'true') {
+      value = true;
+    }
+    if (value === 'false') {
+      value = false;
+    }
+    console.log('Typeof:', typeof value, value);
+    const name = e.target.name;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value
+    }))
   }
 
   const handleSubmit = () => {
@@ -17,79 +44,117 @@ const Onboarding = () => {
     <>
       <Navbar minimal={true} showModal={false} setShowModal={() => {}} />
       <div className="onboarding">
-        <h2>CREATE ACCOUNT</h2>
-        <form onSubmit={handleSubmit}>
-          <section>
+        <h2 className='onboarding-title'>CREATE ACCOUNT</h2>
+        <form className='onboarding-form' onSubmit={handleSubmit}>
+          <div className='left-side'>
             <label htmlFor='first_name'>First Name</label>
             <input 
               id='first_name'
               name='first_name'
               placeholder='First Name'
               required
-              value={''}
+              value={formData.first_name}
               type='text'
               onChange={handleChange}
             />
             <label>Birthday</label>
             <div className='input-container'>
               <input 
-                id='dob_day'
-                name='dob_day'
-                placeholder='DD'
-                required
-                value={''}
-                type='number'
-                onChange={handleChange}
-              />
-              <input 
-                id='dob_month'
-                name='dob_month'
-                placeholder='MM'
-                required
-                value={''}
-                type='number'
-                onChange={handleChange}
-              />
-              <input 
-                id='dob_year'
-                name='dob_year'
-                placeholder='YYYY'
-                required
-                value={''}
-                type='number'
-                onChange={handleChange}
-              />
+                  id='dob_month'
+                  name='dob_month'
+                  placeholder='MM'
+                  required
+                  value={formData.dob_month}
+                  type='number'
+                  onChange={handleChange}
+                  className='dob-input'
+                />
+                <input 
+                  id='dob_day'
+                  name='dob_day'
+                  placeholder='DD'
+                  required
+                  value={formData.dob_day}
+                  type='number'
+                  onChange={handleChange}
+                  className='dob-input'
+                />
+                <input 
+                  id='dob_year'
+                  name='dob_year'
+                  placeholder='YYYY'
+                  required
+                  value={formData.dob_year}
+                  type='number'
+                  onChange={handleChange}
+                  className='dob-input'
+                />
             </div>
             <label>Gender</label>
             <div className='input-container'>
               <input 
                 id='male-gender'
-                name='male-gender'
+                name='gender'
                 value='male'
                 type='radio'
                 onChange={handleChange}
-                checked={false}
+                checked={formData.gender === 'male'}
               />
-              <label htmlFor='male-gender'>Male</label>
+              <label className='gender-label' htmlFor='male-gender'>Male</label>
               <input 
                 id='female-gender'
-                name='female-gender'
+                name='gender'
                 value='female'
                 type='radio'
                 onChange={handleChange}
-                checked={false}
+                checked={formData.gender === 'female'}
               />
-              <label htmlFor='female-gender'>Female</label>
+              <label className='gender-label' htmlFor='female-gender'>Female</label>
+            </div>
+            
+            <label htmlFor='show_gender'>Show Gender on My Profile</label>
+            <div className='input-container'>
+              <input 
+                id='show_gender_yes'
+                name='show_gender'
+                type='radio'
+                value={true}
+                onChange={handleChange}
+                checked={formData.show_gender == true}
+              />
+              <label className='boolean-label' htmlFor='show_gender_yes'>Yes</label>
+              <input 
+                id='show_gender_no'
+                name='show_gender'
+                type='radio'
+                value={false}
+                onChange={handleChange}
+                checked={formData.show_gender == false}
+              />
+              <label className='boolean-label' htmlFor='show_gender_no'>No</label>
             </div>
 
-            <label htmlFor='show_gender'>Show Gender on My Profile</label>
+            <label>Are you trained?</label>
+            <div className='input-container'>
             <input 
-              id='show_gender'
-              name='show_gender'
-              type='checkbox'
-              onChange={handleChange}
-              checked={false}
-            />
+                id='trained-yes'
+                name='trained'
+                value={true}
+                type='radio'
+                onChange={handleChange}
+                checked={formData.trained == true}
+              />
+              <label className='boolean-label' htmlFor='trained-yes'>Yes</label>
+              <input 
+                id='trained-no'
+                name='trained'
+                value={false}
+                type='radio'
+                onChange={handleChange}
+                checked={formData.trained == false}
+              />
+              <label className='boolean-label' htmlFor='trained-no'>No</label>
+            </div>
 
             <label htmlFor='about'>About Me</label>
             <input
@@ -97,15 +162,15 @@ const Onboarding = () => {
               name='about'
               type='text'
               placeholder='I&apos;m a lean, mean fighting machine...'
-              value={''}
+              value={formData.about}
               required
               onChange={handleChange}
             />
 
-            <input type="submit" />
-          </section>
+            <input className='create-account-button' type="submit" />
+          </div>
 
-          <section>
+          <div className='right-side'>
             <label htmlFor='url'>Profile Picture</label>
             <input 
               type="url"
@@ -114,8 +179,12 @@ const Onboarding = () => {
               onChange={handleChange}
               required 
             />
-            <div className="photo-container"></div>
-          </section>
+            { formData.url !== '' &&
+              <div className="photo-container">
+                <img className='profile-image' src={formData.url} alt="Profile Pic" />
+              </div>
+            }
+          </div>
         </form>
       </div>
     </>
