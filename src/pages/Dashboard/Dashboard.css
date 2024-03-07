@@ -1,11 +1,15 @@
+.dashboard-page {
+  height: 100vh;
+}
+
 .dashboard {
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
+    height: 90%;
 }
 
 .swiper-container {
   width: 50%;
-  height: 70%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,14 +100,15 @@
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
   }
 
   .swiper-container {
     width: 100%;
-    height: 35rem;
+    height: 34rem;
     justify-content: center;
     align-items: center;
+    margin-top: 2rem;
   }
 
   .card-container {
@@ -142,5 +147,31 @@
 
   .art {
     font-size: 0.9rem;
+  }
+
+  .selection-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 2rem;
+  }
+
+  .selection-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+    width: 10rem;
+    border-radius: 2rem;
+    border: 1px solid darkgray;
+  }
+
+  .selection-button.active {
+    background: linear-gradient(45deg, rgb(254, 48, 114), rgb(255, 89, 64));
+    color: white;
+    transition: all 0.3s ease;
+  }
+
+  .chat-view-container {
+    width: 100%;
+    height: 36rem;
   }
 }

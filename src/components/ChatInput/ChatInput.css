@@ -1,0 +1,22 @@
+.chat-input-container {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+.chat-input {
+    resize: none;
+    border-radius: 0.5rem;
+    width: 100%;
+}
+
+.send-icon {
+    font-size: 1.5rem;
+    margin-left: 0.75rem;
+}
+
+@media (max-width: 425px) {
+    .chat-input-container { 
+        padding-bottom: 0;
+    }
+}

@@ -1,5 +1,6 @@
 .onboarding {
     border-top: solid 1px darkgray;
+    margin-top: 4rem;
 }
 
 .onboarding-title {
@@ -33,12 +34,6 @@
 
 .onboarding-form label {
     margin: .5rem 0;
-}
-
-.onboarding-form input::-webkit-outer-spin-button,
-.onboarding-form input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
 }
 
 .input-container {
@@ -99,7 +94,7 @@
     width: 100%;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 425px) {
     .onboarding-form {
         display: flex;
         flex-direction: column-reverse;
