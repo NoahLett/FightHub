@@ -34,6 +34,14 @@ const UserSchema = new mongoose.Schema(
             type: String,
             max: 500,
         },
+        gender: {
+            type: String,
+            default: 'male',
+        },
+        show_gender: {
+            type: Boolean,
+            default: false,
+        },
         trained: {
             type: Boolean,
             default: false,
