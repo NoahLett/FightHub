@@ -7,7 +7,7 @@ const Navbar = ({ minimal, showModal, setShowModal, setIsSignUp }) => {
     setIsSignUp(false);
   }
 
-  const authToken = true;
+  const authToken = false;
 
   return (
     <nav className='nav-container'>
@@ -15,9 +15,11 @@ const Navbar = ({ minimal, showModal, setShowModal, setIsSignUp }) => {
         <img className='logo-img' src="/images/boxing-gloves.png" alt="Boxing Gloves" />
         <span className={`logo-text ${minimal ? 'is-dark' : ''}`}>FightHub</span>
       </div>
+      {!authToken && !minimal && 
       <div className="nav-buttons">
-        {!authToken && !minimal && <button disabled={showModal} onClick={handleClick} className='nav-button'>Sign In</button>}
+        <button disabled={showModal} onClick={handleClick} className='nav-button'>Sign In</button>
       </div>
+      }
     </nav>
   )
 }
