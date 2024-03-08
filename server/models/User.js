@@ -30,7 +30,7 @@ const UserSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        desc: {
+        about: {
             type: String,
             max: 500,
         },

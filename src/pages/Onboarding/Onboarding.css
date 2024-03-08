@@ -95,6 +95,11 @@
 }
 
 @media (max-width: 425px) {
+    .onboarding {
+        margin-top: 1rem;
+        border: none;
+    }
+
     .onboarding-form {
         display: flex;
         flex-direction: column-reverse;
@@ -102,6 +107,7 @@
         margin-left: 1rem;
         margin-right: 1rem;
     }
+
     .left-side,
     .right-side {
         display: flex;
@@ -111,9 +117,16 @@
         padding: 0;
         text-align: start;
     }
+
+    .onboarding-form input {
+        margin: .5rem 0;
+        font-size: 1.15rem;
+    }
+
     #about {
         width: 95%;
     }
+
     .create-account-button {
         width: 90%;
     }
