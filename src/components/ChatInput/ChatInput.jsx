@@ -1,15 +1,24 @@
 import './ChatInput.css';
 import { useState } from "react";
-import { IoMdSend } from "react-icons/io";
+import { FaArrowUp } from "react-icons/fa";
 
 const ChatInput = () => {
 
-  const [textArea, setTextArea] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleChange = e => {
+    const text = e.target.innerText;
+    setMessage(text);
+  }
 
   return (
     <div className="chat-input-container">
-      <textarea className='chat-input' value={textArea} onChange={() => setTextArea(e.target.value)} />
-      <IoMdSend className='send-icon' />
+      <div 
+        contentEditable 
+        className='chat-input' 
+        onInput={handleChange} 
+      />
+      {message !== '' && <FaArrowUp className='send-icon' />}
     </div>
   )
 }
