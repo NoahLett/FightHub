@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from 'react';
 import { FaTimes, FaCheck } from 'react-icons/fa';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -27,6 +28,8 @@ const AuthForm = ({isSignUp}) => {
 
     const [errMessage, setErrMessage] = useState('');
 
+    const [cookies, setCookie, removeCookie] = useCookies('user');
+
     useEffect(() => {
         emailRef.current.focus();
     }, [])
@@ -39,6 +42,9 @@ const AuthForm = ({isSignUp}) => {
             return
           }
           const response = await axios.post('http://localhost:8000/api/auth/register', { email, password });
+          setCookie('Email', response.data.userWithoutPassword.email);
+          setCookie('userId', response.data.userWithoutPassword._id);
+          setCookie('AuthToken', response.data.token);
           const success = response.status === 201;
           if (success) {
             navigate('/onboarding');
