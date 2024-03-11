@@ -41,13 +41,15 @@ const AuthForm = ({isSignUp}) => {
             setErrMessage('Passwords need to match!');
             return
           }
-          const response = await axios.post('http://localhost:8000/api/auth/register', { email, password });
+          const response = await axios.post(`http://localhost:8000/api/auth/${isSignUp ? 'register' : 'sign-in'}`, { email, password });
           setCookie('Email', response.data.userWithoutPassword.email);
           setCookie('userId', response.data.userWithoutPassword._id);
           setCookie('AuthToken', response.data.token);
-          const success = response.status === 201;
-          if (success) {
+          const success = response.status === 201 || 200;
+          if (success && isSignUp) {
             navigate('/onboarding');
+          } else if (success && !isSignUp) {
+              navigate('/dashboard');
           }
         } catch (error) {
           console.log(error.message);
@@ -152,7 +154,7 @@ const AuthForm = ({isSignUp}) => {
               Must match the first password input field.
           </p>
         )}
-        <input className='submit-button' type="submit" disabled={!validPassword || !validMatch ? true : false} />
+        <input className='submit-button' type="submit" />
         <p ref={errRef} className={errMessage ? 'error' : 'offscreen'}>{errMessage}</p>
     </form>
   )

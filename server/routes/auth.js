@@ -46,4 +46,43 @@ router.post('/register', async (req, res) => {
     }
 });
 
+// Sign In
+router.post('/sign-in', async (req, res) => {
+    const { email, password } = req.body;
+    const sanatizedEmail = email.toLowerCase();
+
+    try {
+        const user = await User.findOne({ 
+            email: sanatizedEmail, 
+        });
+
+        if (user) {
+            const correctPassword = await bcrypt.compare(password, user.hashed_password);
+
+            if (correctPassword) {
+                const userWithoutPassword = {
+                    _id: user._id,
+                    email: user.email,
+                };
+
+                const token = jwt.sign({ userId: user._id, email: user.email }, process.env.SECRET_KEY, {
+                    expiresIn: 60 * 24,
+                });
+
+                res.status(200).json({ token, userWithoutPassword });
+
+            } else {
+                res.status(400).json({ message: 'Invalid Credentials' });
+            }
+
+        } else {
+            res.status(400).json({ message: 'Invalid Credentials' });
+        }
+        
+    } catch (error) {
+        return res.status(500).json({ message: 'Oops! Something went wrong...' });
+    }
+
+})
+
 module.exports = router;
