@@ -1,6 +1,8 @@
 import './AuthForm.css';
 import { useEffect, useState, useRef } from 'react';
-import { FaTimes, FaCheck } from 'react-icons/fa'
+import { FaTimes, FaCheck } from 'react-icons/fa';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -9,6 +11,7 @@ const AuthForm = ({isSignUp}) => {
 
     const emailRef = useRef();
     const errRef = useRef();
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState('');
     const [validEmail, setValidEmail] = useState(false);
@@ -28,14 +31,20 @@ const AuthForm = ({isSignUp}) => {
         emailRef.current.focus();
     }, [])
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
         try {
           if (isSignUp && (password !== matchPassword)) {
             setErrMessage('Passwords need to match!');
+            return
+          }
+          const response = await axios.post('http://localhost:8000/api/auth/register', { email, password });
+          const success = response.status === 201;
+          if (success) {
+            navigate('/onboarding');
           }
         } catch (error) {
-          console.log(error);
+          console.log(error.message);
         }
     }
 
