@@ -10,7 +10,6 @@ const Onboarding = () => {
     dob_month: '',
     dob_year: '',
     gender: 'male',
-    show_gender: false,
     trained: false,
     email: '',
     url: '',
@@ -26,7 +25,11 @@ const Onboarding = () => {
     if (value === 'false') {
       value = false;
     }
-    console.log('Typeof:', typeof value, value);
+    if (e.target.name === 'dob_year') {
+      value = e.target.value.slice(0, 4);
+    } else if (e.target.name === 'dob_day' || e.target.name === 'dob_month') {
+      value = e.target.value.slice(0, 2);
+    }
     const name = e.target.name;
     setFormData((prevState) => ({
       ...prevState,
@@ -63,6 +66,7 @@ const Onboarding = () => {
                   required
                   value={formData.dob_month}
                   type='number'
+                  maxLength='2'
                   onChange={handleChange}
                   className='dob-input'
                 />
@@ -73,6 +77,7 @@ const Onboarding = () => {
                   required
                   value={formData.dob_day}
                   type='number'
+                  maxLength='2'
                   onChange={handleChange}
                   className='dob-input'
                 />
@@ -83,6 +88,7 @@ const Onboarding = () => {
                   required
                   value={formData.dob_year}
                   type='number'
+                  maxLength='4'
                   onChange={handleChange}
                   className='dob-input'
                 />
@@ -107,28 +113,6 @@ const Onboarding = () => {
                 checked={formData.gender === 'female'}
               />
               <label className='gender-label' htmlFor='female-gender'>Female</label>
-            </div>
-            
-            <label htmlFor='show_gender'>Show Gender on My Profile</label>
-            <div className='input-container'>
-              <input 
-                id='show_gender_yes'
-                name='show_gender'
-                type='radio'
-                value={true}
-                onChange={handleChange}
-                checked={formData.show_gender == true}
-              />
-              <label className='boolean-label' htmlFor='show_gender_yes'>Yes</label>
-              <input 
-                id='show_gender_no'
-                name='show_gender'
-                type='radio'
-                value={false}
-                onChange={handleChange}
-                checked={formData.show_gender == false}
-              />
-              <label className='boolean-label' htmlFor='show_gender_no'>No</label>
             </div>
 
             <label>Are you trained?</label>
