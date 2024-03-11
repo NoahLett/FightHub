@@ -29,15 +29,21 @@ router.post('/register', async (req, res) => {
         });
 
         const user = await newUser.save();
+
+        const userWithoutPassword = {
+            _id: user._id,
+            email: user.email,
+        };
+
         const token = jwt.sign({ userId: user._id, email: user.email }, process.env.SECRET_KEY, {
             expiresIn: 60 * 24,
         });
 
-        res.status(201).json({ token, user });
+        res.status(201).json({ token, userWithoutPassword });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Oops! Something went wrong...' });
     }
-})
+});
 
 module.exports = router;
