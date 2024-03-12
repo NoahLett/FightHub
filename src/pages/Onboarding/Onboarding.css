@@ -1,6 +1,5 @@
 .onboarding {
     border-top: solid 1px darkgray;
-    margin-top: 4rem;
 }
 
 .onboarding-title {
@@ -96,8 +95,12 @@
 
 @media (max-width: 425px) {
     .onboarding {
-        margin-top: 1rem;
+        margin-top: 0;
         border: none;
+    }
+
+    .onboarding-title {
+        margin-top: 0;
     }
 
     .onboarding-form {
@@ -106,6 +109,10 @@
         align-items: center;
         margin-left: 1rem;
         margin-right: 1rem;
+    }
+
+    .onboarding-form label {
+        margin-bottom: 0.25rem;
     }
 
     .left-side,
@@ -119,7 +126,7 @@
     }
 
     .onboarding-form input {
-        margin: .5rem 0;
+        margin: .5rem;
         font-size: 1.15rem;
     }
 
@@ -128,6 +135,6 @@
     }
 
     .create-account-button {
-        width: 90%;
+        width: 100%;
     }
 }
