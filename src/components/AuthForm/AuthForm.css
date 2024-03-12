@@ -64,3 +64,11 @@ input[type=email] {
     right: 1.25rem;
     top: 1.25rem;
 }
+
+.error {
+    background-color: rgb(254, 137, 137);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    color: white;
+    font-size: 1.25rem,;
+}

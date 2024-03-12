@@ -52,7 +52,14 @@ const AuthForm = ({isSignUp}) => {
               navigate('/dashboard');
           }
         } catch (error) {
-          console.log(error.message);
+          const code = error.response.status;
+          if (code === 401) {
+            setErrMessage('Invalid Credentials');
+          } else if (code === 409) {
+            setErrMessage('Email in use. Please sign in.');
+          } else if (code === 500) {
+            setErrMessage('Oops! Something went wrong...');
+          }
         }
     }
 

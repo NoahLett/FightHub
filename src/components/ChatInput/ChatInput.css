@@ -25,7 +25,7 @@
     margin-left: 0.75rem;
     position: absolute;
     right: 1.25rem;
-    bottom: 0.35rem;
+    bottom: 1rem;
     background: rgb(254, 48, 114);
     border-radius: 1rem;
     padding: 0.25rem;
@@ -36,16 +36,31 @@
     .chat-input {
         max-width: 12rem;
     }
+
+    .send-icon {
+        bottom: 4.35rem;
+    }
 }
 
 @media (min-width: 1024px) {
     .chat-input {
         max-width: 17rem;
     }
+
+    .send-icon {
+        bottom: -0.7rem;
+        right: 1.5rem;
+    }
 }
 
 @media (min-width: 1440px) {
     .chat-input {
         max-width: 25rem;
+        bottom: 10rem;
+    }
+
+    .send-icon {
+        bottom: -4rem;
+        right: 2.25rem;
     }
 }
