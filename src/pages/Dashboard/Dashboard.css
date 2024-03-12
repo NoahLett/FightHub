@@ -5,7 +5,7 @@
 .dashboard {
     display: flex;
     justify-content: start;
-    height: 90%;
+    height: 85%;
 }
 
 .swiper-container {
@@ -101,6 +101,7 @@
     flex-direction: column-reverse;
     align-items: center;
     justify-content: start;
+    position: relative;
   }
 
   .swiper-container {
@@ -153,7 +154,8 @@
     display: flex;
     width: 100%;
     justify-content: space-around;
-    margin-top: 2rem;
+    position: absolute;
+    bottom: 0;
   }
 
   .selection-button {

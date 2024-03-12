@@ -43,6 +43,7 @@ const Onboarding = () => {
 
   return (
     <>
+    <Navbar minimal={true} showModal={false} setShowModal={() => {}} />
       <div className="onboarding">
         <h2 className='onboarding-title'>CREATE ACCOUNT</h2>
         <form className='onboarding-form' onSubmit={handleSubmit}>
@@ -142,7 +143,7 @@ const Onboarding = () => {
               id='about'
               name='about'
               type='text'
-              placeholder='i.e.: Grew up as a boxer...'
+              placeholder='i.e.: Love to roll no gi...'
               value={formData.about}
               required
               onChange={handleChange}
